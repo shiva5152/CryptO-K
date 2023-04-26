@@ -9,9 +9,9 @@ import cookieSession from 'cookie-session';
 import cors from 'cors'
 
 // to get static file from client
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import path from 'path';
+// import { dirname } from 'path';
+// import { fileURLToPath } from 'url';
+// import path from 'path';
 
 const app=express();
 dotenv.config({});
