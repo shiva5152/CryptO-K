@@ -59,7 +59,7 @@ const  Navbar=()=> {
                 </div>
                 {isAdmin && (
                   <button onClick={handleClick} className='text bg-gray-900 rounded-md px-3 py-2 text-white text-sm font-medium ml-3'> Admin Dashboard</button>
-                )}
+                )} 
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
