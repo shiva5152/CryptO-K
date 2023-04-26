@@ -5,8 +5,7 @@ import userRouter from './routes/userRouts.js';
 import listRouter from './routes/listRoutes.js'
 import connectDB from "./mongoDB/connect.js"
 import errorMiddleware from './middleware/error.js'
-import cookieSession from 'cookie-session';
-import cors from 'cors'
+
 
 // to get static file from client
 // import { dirname } from 'path';
@@ -16,15 +15,6 @@ import cors from 'cors'
 const app=express();
 dotenv.config({});
 
-app.use(cookieSession({
-    name:'session',keys:["shiva"],maxAge:24*60*60*100
-}))
-// app.use(passport.session());
-app.use(cors({
-    origin:"http://127.0.0.1:5173",
-    methods:"GET,POST,PATCH,PUT,DELETE",
-    Credentials:true,
-}))
 // middleware
 app.use(express.json());
 app.use(cookieParser());
