@@ -30,8 +30,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // static->frontend
-const __dirname = dirname(fileURLToPath(import.meta.url));
-app.use(express.static(path.resolve(__dirname,'../client/dist')))
+// const __dirname = dirname(fileURLToPath(import.meta.url));
+// app.use(express.static(path.resolve(__dirname,'../client/dist')))
 
 // app routes
 app.use('/api/v1/auth',userRouter)
