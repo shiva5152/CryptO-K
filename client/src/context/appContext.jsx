@@ -50,9 +50,9 @@ const AppProvider = ({ children }) => {
   // axiso --base url
   const instance = axios.create({
     // development->
-     baseURL: 'abc/api/v1'
+    // baseURL: 'abc/api/v1'
     // // production
-    // baseURL: '/api/v1',
+     baseURL: '/api/v1',
     
   });
     const getCoins=async()=>{

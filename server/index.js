@@ -8,6 +8,11 @@ import errorMiddleware from './middleware/error.js'
 import cookieSession from 'cookie-session';
 import cors from 'cors'
 
+// to get static file from client
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 const app=express();
 dotenv.config({});
 
@@ -20,9 +25,15 @@ app.use(cors({
     methods:"GET,POST,PATCH,PUT,DELETE",
     Credentials:true,
 }))
+// middleware
 app.use(express.json());
 app.use(cookieParser());
 
+// static->frontend
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.resolve(__dirname,'../client/dist')))
+
+// app routes
 app.use('/api/v1/auth',userRouter)
 app.use('/api/v1/coins',listRouter)
 
