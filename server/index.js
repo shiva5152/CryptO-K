@@ -27,9 +27,6 @@ app.use(express.static(path.resolve(__dirname,'../client/dist')))
 app.use('/api/v1/auth',userRouter)
 app.use('/api/v1/coins',listRouter)
 
-app.get('/',async(req,res)=>{
-    res.send('Hello from cryPtoK!');
-})
 
 app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
