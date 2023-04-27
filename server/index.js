@@ -8,9 +8,9 @@ import errorMiddleware from './middleware/error.js'
 
 
 // to get static file from client
-// import { dirname } from 'path';
-// import { fileURLToPath } from 'url';
-// import path from 'path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
 const app=express();
 dotenv.config({});
@@ -20,18 +20,19 @@ app.use(express.json());
 app.use(cookieParser());
 
 // static->frontend
-// const __dirname = dirname(fileURLToPath(import.meta.url));
-// app.use(express.static(path.resolve(__dirname,'../client/dist')))
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.resolve(__dirname,'../client/dist')))
 
 // app routes
 app.use('/api/v1/auth',userRouter)
 app.use('/api/v1/coins',listRouter)
 
+app.get('/',async(req,res)=>{
+    res.send('Hello from cryPtoK!');
+})
+
 app.get('*', function (req, res) {
-    res.status(404).json({
-        success:false,
-        message:" Not Found"
-    });
+    res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
   });
 
 // errorMiddleware
